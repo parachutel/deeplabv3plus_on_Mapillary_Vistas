@@ -170,5 +170,3 @@ with "deeplab".
 13. **The Cityscapes Dataset for Semantic Urban Scene Understanding**<br />
     Cordts, Marius, Mohamed Omran, Sebastian Ramos, Timo Rehfeld, Markus Enzweiler, Rodrigo Benenson, Uwe Franke, Stefan Roth, Bernt Schiele. <br />
     [[link]](https://www.cityscapes-dataset.com/). In CVPR, 2016.
-# deeplabv3plus_on_Mapillary_Vistas
-# deeplabv3plus_on_Mapillary_Vistas
