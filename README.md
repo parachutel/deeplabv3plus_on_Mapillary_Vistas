@@ -1,3 +1,6 @@
+
+=====================================================================
+# Original Documentation by Google TensorFlow DeepLab Developors:
 # DeepLab: Deep Labelling for Semantic Image Segmentation
 
 DeepLab is a state-of-art deep learning model for semantic image segmentation,
