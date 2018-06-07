@@ -1,4 +1,3 @@
-ImageSets/*
 JPEGImages/*
 SegmentationClass/*
 SegmentationClassRaw/*
@@ -6,4 +5,8 @@ _JPEGImages
 _JPEGImages/*
 _SegmentationClass
 _SegmentationClass/*
+!ImageSets
+!JPEGImages/--NSVcUgfVhFd6uzkqHOOg.jpg
+!SegmentationClass/--NSVcUgfVhFd6uzkqHOOg.png
+!SegmentationClassRaw/--SWG8TJo7vrbZ_x5YLj6A.png
 !.gitignore

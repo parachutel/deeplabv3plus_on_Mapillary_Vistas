@@ -1,5 +1,1 @@
-tfrecord.backup/*
 tfrecord.backup
-tfrecord/*
-pascal_voc_seg/*
-!.gitignore
