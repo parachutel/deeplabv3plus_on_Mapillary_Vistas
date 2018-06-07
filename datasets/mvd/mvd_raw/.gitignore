@@ -1,0 +1,9 @@
+ImageSets/*
+JPEGImages/*
+SegmentationClass/*
+SegmentationClassRaw/*
+_JPEGImages
+_JPEGImages/*
+_SegmentationClass
+_SegmentationClass/*
+!.gitignore
