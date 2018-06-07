@@ -1,3 +1,54 @@
+Train script:
+```
+python "${WORK_DIR}"/train.py \
+  --logtostderr \
+  --num_clones=4 \
+  --train_split="train" \
+  --model_variant="xception_65" \
+  --atrous_rates=6 \
+  --atrous_rates=12 \
+  --atrous_rates=18 \
+  --output_stride=16 \
+  --decoder_output_stride=4 \
+  --train_crop_size=513 \
+  --train_crop_size=513 \
+  --train_batch_size=16 \
+  --base_learning_rate=0.0025 \
+  --learning_rate_decay_step=500 \
+  --weight_decay=0.000015 \
+  --training_number_of_steps="${NUM_ITERATIONS}" \
+  --log_steps=1 \
+  --save_summaries_secs=60 \
+  --fine_tune_batch_norm=true \
+  --tf_initial_checkpoint="${INIT_FOLDER}/deeplabv3_cityscapes_train/model.ckpt" \
+  --initialize_last_layer=false \
+  --train_logdir="${TRAIN_LOGDIR}" \
+  --dataset_dir="${MVD_DATASET}"
+```
+Default value of --dataset is modified inside train.py directly.
+Batch size depends on your available memory.
+ 
+eval script:
+```
+python "${WORK_DIR}"/eval.py \
+  --logtostderr \
+  --eval_split="val" \
+  --model_variant="xception_65" \
+  --atrous_rates=6 \
+  --atrous_rates=12 \
+  --atrous_rates=18 \
+  --output_stride=16 \
+  --decoder_output_stride=4 \
+  --eval_crop_size=2993 \
+  --eval_crop_size=3169 \
+  --checkpoint_dir="${TRAIN_LOGDIR}" \
+  --eval_logdir="${EVAL_LOGDIR}" \
+  --dataset_dir="${MVD_DATASET}" \
+  --max_number_of_evaluations=1
+```
+Default value of --dataset is modified inside eval.py directly.
+eval_crop_size depends on the maximum height and width of the images from the dataset.
+
 
 =====================================================================
 # Original Documentation by Google TensorFlow DeepLab Developors:
