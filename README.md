@@ -7,7 +7,7 @@ To build the dataset, put images in `/datasets/mvd/mvd_raw/JPEGImages/`, put gro
 
 To preprocess the dataset and generate tfrecord files for faster reading, please run `/datasets/convert_mvd.sh`.
 
-To run train, evaluate and visualize prediction using the model, use the following commands:
+To run train, evaluate and visualize prediction using the model, use the following commands by running `local_test_mvd.sh` (you may comment out the parts you do not wish to run):
 
 Train script:
 ```
