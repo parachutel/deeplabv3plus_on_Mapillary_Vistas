@@ -7,7 +7,7 @@ To build the dataset, put images in `/datasets/mvd/mvd_raw/JPEGImages/`, put gro
 
 To preprocess the dataset and generate tfrecord files for faster reading, please run `/datasets/convert_mvd.sh`.
 
-The initial model checkpoints are available [in the TensorFlow DeepLab Model Zoo ](https://github.com/tensorflow/models/blob/master/research/deeplab/g3doc/model_zoo.md). Please put them in `/datasets/mvd/init_models/`.
+The initial model checkpoints are available [in the TensorFlow DeepLab Model Zoo ](https://github.com/tensorflow/models/blob/master/research/deeplab/g3doc/model_zoo.md). Please put the ones you wish to use in `/datasets/mvd/init_models/`.
 
 To run train, evaluate and visualize prediction using the model, use the following commands by running `local_test_mvd.sh` (you may comment out the parts you do not wish to run):
 
