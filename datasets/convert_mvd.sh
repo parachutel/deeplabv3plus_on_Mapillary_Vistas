@@ -48,10 +48,10 @@ MVD_ROOT="${WORK_DIR}/mvd_raw"
 SEG_FOLDER="${MVD_ROOT}/SegmentationClass"
 SEMANTIC_SEG_FOLDER="${MVD_ROOT}/SegmentationClassRaw"
 
-# echo "Removing the color map in ground truth annotations..."
-# python ./remove_gt_colormap.py \
-#   --original_gt_folder="${SEG_FOLDER}" \
-#   --output_dir="${SEMANTIC_SEG_FOLDER}"
+echo "Removing the color map in ground truth annotations..."
+python ./remove_gt_colormap.py \
+  --original_gt_folder="${SEG_FOLDER}" \
+  --output_dir="${SEMANTIC_SEG_FOLDER}"
 
 # Build TFRecords of the dataset.
 # First, create output directory for storing TFRecords.
