@@ -9,7 +9,7 @@ To preprocess the dataset and generate tfrecord files for faster reading, please
 
 To run train, evaluate and visualize prediction using the model, use the following commands by running `local_test_mvd.sh` (you may comment out the parts you do not wish to run):
 
-Train script:
+Train:
 ```
 python "${WORK_DIR}"/train.py \
   --logtostderr \
@@ -39,7 +39,7 @@ python "${WORK_DIR}"/train.py \
 Default value of --dataset is modified inside train.py directly.
 Batch size and train_crop_size depends on your device's available memory.
  
-eval script:
+Evaluation model:
 ```
 python "${WORK_DIR}"/eval.py \
   --logtostderr \
@@ -58,7 +58,7 @@ python "${WORK_DIR}"/eval.py \
   --max_number_of_evaluations=1
 ```
 
-visaulize the prediction:
+Visaulize the prediction:
 ```
 python "${WORK_DIR}"/vis.py \
   --logtostderr \
