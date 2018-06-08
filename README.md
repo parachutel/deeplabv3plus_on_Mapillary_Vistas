@@ -1,6 +1,6 @@
 # Semantic Segmentation on the Mapillary Vistas Dataset using the [DeepLabv3+](https://github.com/tensorflow/models/tree/master/research/deeplab) [4] model by Google TensorFlow
 ## This is a repository for Stanford CS231N course project (spring 2018)
-**Contact: Sheng Li [parachutel_](https://github.com/parachutel), available via lisheng@stanford.edu.**
+**Contact: Sheng Li ([parachutel_](https://github.com/parachutel)), available via lisheng@stanford.edu.**
 
 The Mapillary Vistas Dataset is available for academic use at [here](https://www.mapillary.com/dataset/vistas?pKey=kBLk1dWR1ZuFPspBE9fN_w&lat=20&lng=0&z=1.5) (by request).
 
