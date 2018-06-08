@@ -1,3 +1,14 @@
+# Semantic Segmentation on the Mapillary Vistas Dataset using the DeepLabv3+ [4] model by Google TensorFlow
+## This is a repository for Stanford CS231N course project (spring 2018)
+
+The Mapillary Vistas Dataset is available for academic use at [here](https://www.mapillary.com/dataset/vistas?pKey=kBLk1dWR1ZuFPspBE9fN_w&lat=20&lng=0&z=1.5) (by request).
+
+To build the dataset, put images in `/datasets/mvd/mvd_raw/JPEGImages/`, put ground truth labels in `/datasets/mvd/mvd_raw/SegmentationClass/`, put dataset split filename lists (text files) in `/datasets/mvd/mvd_raw/ImageSets/Segmentation/`. `/datasets/mvd/mvd_raw/ImageSets/Segmentation/build_image_sets.py` can help you build the dataset split list files. You will need to update `_MVD_INFORMATION` in `/datasets/segmentation_dataset.py` after building your dataset.
+
+To preprocess the dataset and generate tfrecord files for faster reading, please run `/datasets/convert_mvd.sh`.
+
+To run train, evaluate and visualize prediction using the model, use the following commands:
+
 Train script:
 ```
 python "${WORK_DIR}"/train.py \
@@ -26,7 +37,7 @@ python "${WORK_DIR}"/train.py \
   --dataset_dir="${MVD_DATASET}"
 ```
 Default value of --dataset is modified inside train.py directly.
-Batch size depends on your available memory.
+Batch size and train_crop_size depends on your device's available memory.
  
 eval script:
 ```
@@ -39,18 +50,38 @@ python "${WORK_DIR}"/eval.py \
   --atrous_rates=18 \
   --output_stride=16 \
   --decoder_output_stride=4 \
-  --eval_crop_size=2993 \
-  --eval_crop_size=3169 \
+  --eval_crop_size=<MAX_HEIGHT_PLUS> \
+  --eval_crop_size=<MAX_WIDTH_PLUS> \
   --checkpoint_dir="${TRAIN_LOGDIR}" \
   --eval_logdir="${EVAL_LOGDIR}" \
   --dataset_dir="${MVD_DATASET}" \
   --max_number_of_evaluations=1
 ```
-Default value of --dataset is modified inside eval.py directly.
-eval_crop_size depends on the maximum height and width of the images from the dataset.
 
+visaulize the prediction:
+```
+python "${WORK_DIR}"/vis.py \
+  --logtostderr \
+  --vis_split="val" \
+  --model_variant="xception_65" \
+  --atrous_rates=6 \
+  --atrous_rates=12 \
+  --atrous_rates=18 \
+  --output_stride=16 \
+  --decoder_output_stride=4 \
+  --vis_crop_size=<MAX_HEIGHT_PLUS> \
+  --vis_crop_size=<MAX_WIDTH_PLUS> \
+  --checkpoint_dir="${TRAIN_LOGDIR}" \
+  --vis_logdir="${VIS_LOGDIR}" \
+  --dataset_dir="${MVD_DATASET}" \
+  --max_number_of_iterations=1
+```
+**Note**: <MAX_HEIGHT_PLUS> and <MAX_WIDTH_PLUS> depends on the maximum resolution 
+of your dataset. The following should be satisfied: <MAX_HEIGHT_PLUS> = output_stride * k + 1.
+The default value, 513, is set for PASCAL images whose largest image dimension is 512.
+We pick k = 32, resulting in eval_crop_size = 16 * 32 + 1 = 513 > 512. Same for <MAX_WIDTH_PLUS>.
 
-=====================================================================
+============================================================================
 # Original Documentation by Google TensorFlow DeepLab Developors:
 # DeepLab: Deep Labelling for Semantic Image Segmentation
 
