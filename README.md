@@ -86,7 +86,7 @@ We pick k = 32, resulting in eval_crop_size = 16 * 32 + 1 = 513 > 512. Same for 
 
 
 ============================================================================
-# Original Documentation by Google TensorFlow DeepLab Developors:
+# Original Documentation by Google TensorFlow DeepLab Developers:
 # DeepLab: Deep Labelling for Semantic Image Segmentation
 
 DeepLab is a state-of-art deep learning model for semantic image segmentation,
